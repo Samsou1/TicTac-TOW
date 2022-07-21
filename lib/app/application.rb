@@ -18,14 +18,17 @@ class Application
     game_loop
   end
 
+  # clear the console
   def screen_clear
     system('clear')
   end
 
+  # displays habitual greetings
   def prompt_welcome
     puts "\n\nWelcome to Tictac TOE!"
   end
 
+  # ask the players what their name are and store them
   def prompt_name
     puts "\nPlayer 1, what's your name?"
     @name1 = gets.chomp
@@ -34,6 +37,7 @@ class Application
     puts "Welcome to both of you #{name1} and #{name2}"
   end
 
+  # display what the rules of the games are
   def prompt_rules
     puts "\nI'm sure you all know this game but just so we're clear, here are the rules again"
     puts 'Here is a board of 9 squares that are empty for now'
@@ -43,36 +47,40 @@ class Application
     puts 'Shall we?'
   end
 
+  # display how many times player 1 won, how many times player 2 won, how many games were drawn and finally who's in the lead
   def display_stats
-    puts "#{@name1} won #{game_won1} times"
+    puts "\n#{@name1} won #{game_won1} times"
     puts "#{@name2} won #{game_won2} times"
     puts "There has been #{game_drawn} draws"
     if game_won1 > game_won2
       puts "\n#{@name1} is leading by #{@game_won1 - @game_won2} points"
     elsif game_won2 > game_won1
       puts "#{@name2} is leading by #{@game_won2 - @game_won1} points"
-    else
-      puts "It's a tight race, you both have the same number of points " if @game_won2 == @game_won1
-      puts "\nDo you wanna play another game?"
+    elsif @game_won2 == @game_won1
+      puts "It's a tight race, you both have the same number of points"
     end
   end
 
+  # asks the player if they want to keep playing or not or depending on what their answer is, start another game or close the Application
   def keep_playing?
+    puts "\nDo you wanna play another game?"
     acceptable_response = false
     while acceptable_response == false
       response = gets.chomp
-      if response.downcase == 'n' || response.downcase == 'no' || response.downcase == 'nah' || response.downcase == 'nope'
-        puts 'Ok, see you another time!'
+      case response.downcase
+      when 'n', 'no', 'nah', 'nope'
+        puts "\nOk, see you another time!"
         return false
-      elsif response.downcase == 'y' || response.downcase == 'yes' || response.downcase == 'yeah' || response.downcase == 'yep'
-        puts "Awesome let's keep playing!"
+      when 'y', 'yes', 'yeah', 'yep'
+        puts "\nAwesome let's keep playing!"
         return true
       else
-        puts "Sorry, I didn't catch that, do you wanna keep playing?"
+        puts "\nSorry, I didn't catch that, do you wanna keep playing?"
       end
     end
   end
 
+  # creates games until a player decides to stop
   def game_loop
     wanna_play = true
     while wanna_play == true
@@ -85,5 +93,3 @@ class Application
     end
   end
 end
-
-Application.new

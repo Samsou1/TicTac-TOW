@@ -5,6 +5,7 @@ require_relative 'render'
 class Board
   attr_accessor :grid
 
+  # creates a new board with in every board square, a number from 1 o 9
   def initialize
     @grid = []
     (1..9).each do |i|
@@ -14,6 +15,7 @@ class Board
     end
   end
 
+  # check if the board if full of symbols or not
   def check_full?
     @grid.all? { |el| el.is_a?(String) } ? true : false
   end

@@ -1,5 +1,6 @@
 require_relative '../game'
 require_relative '../player'
+require 'colorize'
 
 # This class performs the game loop
 class Application
@@ -32,19 +33,19 @@ class Application
   def prompt_name
     puts "\nPlayer 1, what's your name?"
     @name1 = gets.chomp
-    puts "That's a great name #{name1}, how about you Player 2?"
+    puts "\nThat's a great name #{name1}, how about you Player 2?"
     @name2 = gets.chomp
-    puts "Welcome to both of you #{name1} and #{name2}"
+    puts "\nWelcome to both of you #{name1} and #{name2}"
   end
 
   # display what the rules of the games are
   def prompt_rules
-    puts "\nI'm sure you all know this game but just so we're clear, here are the rules again"
-    puts 'Here is a board of 9 squares that are empty for now'
-    puts "You will place your symbol, either a 'X' or a 'O' on each square"
-    puts 'In order to win the game, you need to place 3 of your symbol on the same row, column or diagonal'
-    puts "If all 9 squares are filled and there's no winner then it's a draw"
-    puts 'Shall we?'
+    puts "\nI'm sure you all know this game but just so we're clear, here are the rules again:"
+    puts "\nHere is a board of 9 squares that are empty for now."
+    puts "You will place your symbol, either a #{'X'.colorize(:red)} or a #{'O'.colorize(:light_blue)} on each square."
+    puts "In order to win the game, you'll need to place 3 of your symbols on the same row, column or diagonal."
+    puts "If all 9 squares are filled and there's no winner then it'll be a draw."
+    puts "\nShall we?"
   end
 
   # display how many times player 1 won, how many times player 2 won, how many games were drawn and finally who's in the lead

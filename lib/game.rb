@@ -40,11 +40,12 @@ class Game
   # main function of the class Game that allows you to keep playing until a winning combination has been found
   def play
     while !check_if_win[0] && !check_if_draw
-      puts "It's #{@player1.name}'s turn to play, where do you want to place your #{player1.symbol.colorize(:red)}?"
+      # while !check_if_win[0] && @board.check_full? && !check_if_draw
+      puts "\nIt's #{@player1.name}'s turn to play, where do you want to place your #{player1.symbol.colorize(:red)}?"
       play_by_turn(1)
       next unless !check_if_win[0] && !check_if_draw
 
-      puts "It's now #{@player2.name}'s turn to play, where do you want to place your #{player2.symbol.colorize(:light_blue)}?"
+      puts "\nIt's now #{@player2.name}'s turn to play, where do you want to place your #{player2.symbol.colorize(:light_blue)}?"
       play_by_turn(2)
     end
     puts 'The game is finished'
@@ -56,17 +57,15 @@ class Game
     @render.render_board(@board.grid)
     desired_play = gets.to_i
     while legal_move?(desired_play) == false
-      puts '\nThis is not possible, can you give me another move?'
+      puts "\nThis is not possible, can you give me another move?"
       @render.render_board(@board.grid)
       desired_play = gets.to_i
     end
     case int
     when 1
-      @board.grid[desired_play - 1].write_cross if player1.symbol == 'X'
-      @board.grid[desired_play - 1].write_circle if player1.symbol == 'O'
+      @board.grid[desired_play - 1].write_cross
     when 2
-      @board.grid[desired_play - 1].write_circle if player2.symbol == 'O'
-      @board.grid[desired_play - 1].write_cross if player2.symbol == 'X'
+      @board.grid[desired_play - 1].write_circle
     end
   end
 

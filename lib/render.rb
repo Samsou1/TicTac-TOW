@@ -12,7 +12,7 @@ class Render
   def display_colour(int)
     case @grid[int].value
     when (1..9)
-      @grid[int].value.to_s.colorize(:black)
+      @grid[int].value.to_s.colorize(:light_black)
     when 'X'
       @grid[int].value.colorize(:red)
     when 'O'
@@ -32,5 +32,6 @@ class Render
     puts '     |     |     '
     puts "  #{display_colour(6)}  |  #{display_colour(7)}  |  #{display_colour(8)}  "
     puts '     |     |     '
+    puts "\n\n"
   end
 end

@@ -1,26 +1,26 @@
 require_relative 'board'
 
-# This class deals with board display
+# This class deals with board rendering
 class Render
-  attr_accessor :display
+  attr_accessor :board
 
   def initialize
-    @display = render_board
+    @board = render_board
   end
 
   def render_board
-    board = Board.new.squares
+    grid = Board.new.squares
     system('clear')
     puts "\n\n     |     |     "
-    puts "  #{board[0]}  |  #{board[1]}  |  #{board[2]}  "
+    puts "  #{grid[0]}  |  #{grid[1]}  |  #{grid[2]}  "
     puts '_____|_____|_____'
     puts '     |     |     '
-    puts "  #{board[3]}  |  #{board[4]}  |  #{board[5]}  "
+    puts "  #{grid[3]}  |  #{grid[4]}  |  #{grid[5]}  "
     puts '_____|_____|_____'
     puts '     |     |     '
-    puts "  #{board[6]}  |  #{board[7]}  |  #{board[8]}  "
+    puts "  #{grid[6]}  |  #{grid[7]}  |  #{grid[8]}  "
     puts '     |     |     '
   end
 end
 
-Render.new.display
+# Render.new.board

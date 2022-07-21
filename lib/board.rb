@@ -1,20 +1,20 @@
 require_relative 'board_square'
+require_relative 'render'
 
 # This class deals with managing the board
 class Board
-  attr_accessor :squares, :crosses, :circles, :full
+  attr_accessor :grid
 
   def initialize
-    @squares = []
-    9.times { @squares << BoardSquare.new }
-    @crosses = []
-    9.times { @crosses << nil }
-    @circles = []
-    9.times { @circles << nil }
-    @full = check_full?
+    @grid = []
+    (1..9).each do |i|
+      square = BoardSquare.new
+      square.value = i
+      @grid << square
+    end
   end
 
   def check_full?
-    @squares.all? { |el| el.is_a?(String) } ? true : false
+    @grid.all? { |el| el.is_a?(String) } ? true : false
   end
 end

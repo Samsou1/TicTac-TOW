@@ -23,15 +23,15 @@ class Render
   # display the board with a specific shape and takes into consideration what colour every symbol or number should be
   def render_board(grid)
     @grid = grid
-    puts "\n\n     |     |     "
-    puts "  #{display_colour(0)}  |  #{display_colour(1)}  |  #{display_colour(2)}  "
-    puts '_____|_____|_____'
-    puts '     |     |     '
-    puts "  #{display_colour(3)}  |  #{display_colour(4)}  |  #{display_colour(5)}  "
-    puts '_____|_____|_____'
-    puts '     |     |     '
-    puts "  #{display_colour(6)}  |  #{display_colour(7)}  |  #{display_colour(8)}  "
-    puts '     |     |     '
+    puts "\n\n          |     |     "
+    puts "       #{display_colour(0)}  |  #{display_colour(1)}  |  #{display_colour(2)}  "
+    puts '     _____|_____|_____'
+    puts '          |     |     '
+    puts "       #{display_colour(3)}  |  #{display_colour(4)}  |  #{display_colour(5)}  "
+    puts '     _____|_____|_____'
+    puts '          |     |     '
+    puts "       #{display_colour(6)}  |  #{display_colour(7)}  |  #{display_colour(8)}  "
+    puts '          |     |     '
     puts "\n\n"
   end
 end

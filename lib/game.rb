@@ -67,6 +67,9 @@ class Game
     when 2
       @board.grid[desired_play - 1].write_circle
     end
+    puts "\n#{@player1.name} won the round!" if check_if_win[1] == 'X'
+    puts "\n#{@player2.name} won the round!" if check_if_win[1] == 'O'
+    puts "\nIt ended in a draw." if check_if_draw
   end
 
   # checks if the move that the player tries to make is legal or not ie, they gave the program an integer from 1 to 9 and the board square with such label is not yet filled

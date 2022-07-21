@@ -17,6 +17,6 @@ class Board
 
   # check if the board if full of symbols or not
   def check_full?
-    @grid.all? { |el| el.is_a?(String) } ? true : false
+    @grid.none? { |square| square.value.is_a?(Integer) } ? true : false
   end
 end

@@ -8,7 +8,7 @@ class Render
     @grid = []
   end
 
-  #depending on the content of the grid, it will colorize the symbols and the numbers in a different way
+  # depending on the content of the grid, it will colorize the symbols and the numbers in a different way
   def display_colour(int)
     case @grid[int].value
     when (1..9)

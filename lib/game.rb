@@ -13,7 +13,7 @@ class Game
     play
   end
 
-  #allows to check if the game ended in a win or not
+  # allows to check if the game ended in a win or not
   def check_if_win
     winning_combination = [
       [1, 2, 3], [4, 5, 6], [7, 8, 9],
@@ -40,7 +40,6 @@ class Game
   # main function of the class Game that allows you to keep playing until a winning combination has been found
   def play
     while !check_if_win[0] && !check_if_draw
-      # while !check_if_win[0] && @board.check_full? && !check_if_draw
       puts "\nIt's #{@player1.name}'s turn to play, where do you want to place your #{player1.symbol.colorize(:red)}?"
       play_by_turn(1)
       next unless !check_if_win[0] && !check_if_draw
